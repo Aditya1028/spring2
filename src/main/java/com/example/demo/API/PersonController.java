@@ -10,7 +10,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("api/v1/person")
+@RequestMapping("api/v1")
 public class PersonController {
 
     private final PersonService personService;
