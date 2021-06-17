@@ -119,7 +119,7 @@ jobs:
     # https://github.com/redhat-actions/buildah-build#readme
     - name: Build from Dockerfile
       id: image-build
-      uses: Aditya1028/SpringBootDemo@V1
+      uses: redhat-actions/buildah-build@v2
 
       with:
         image: ${{ env.APP_NAME }}
@@ -127,8 +127,7 @@ jobs:
         # If you don't have a dockerfile, see:
         # https://github.com/redhat-actions/buildah-build#scratch-build-inputs
         # Otherwise, point this to your Dockerfile relative to the repository root.
-        dockerfiles: |
-          ./Dockerfile
+        dockerfiles: /
 
     # https://github.com/redhat-actions/push-to-registry#readme
     - name: Push to registry
