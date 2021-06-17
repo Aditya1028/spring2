@@ -35,7 +35,7 @@ name: OpenShift
 # https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets
 env:
   # ⬇️ EDIT with your registry and registry path.
-  REGISTRY: docker.io/adityab05
+  REGISTRY: docker.to/adityab05
   # ⬇️ EDIT with your registry username.
   REGISTRY_USER: <username>
   REGISTRY_PASSWORD: ${{ secrets.REGISTRY_PASSWORD }}
@@ -47,10 +47,10 @@ env:
 
   # ⬇️ EDIT with any additional port your application should expose.
   # By default, oc new-app action creates a service to the image's lowest numeric exposed port.
-  APP_PORT: "8443"
+  APP_PORT: "8080"
 
   # ⬇️ EDIT if you wish to set the kube context's namespace after login. Leave blank to use the default namespace.
-  OPENSHIFT_NAMESPACE: "my-websample-project"
+  OPENSHIFT_NAMESPACE: ""
 
   # If you wish to manually provide the APP_NAME and TAG, set them here, otherwise they will be auto-detected.
   APP_NAME: ""
@@ -114,7 +114,20 @@ jobs:
     - name: Determine tag
       if: env.TAG == ''
       run: |
-        echo "TAG=${GITHUB_SHA::7}" | tee -a $GITHUB_ENV   
+        echo "TAG=${GITHUB_SHA::7}" | tee -a $GITHUB_ENV
+
+    # https://github.com/redhat-actions/buildah-build#readme
+    - name: Build from Dockerfile
+      id: image-build
+      uses: redhat-actions/buildah-build@v2
+      with:
+        image: ${{ env.APP_NAME }}
+        tags: ${{ env.TAG }}
+        # If you don't have a dockerfile, see:
+        # https://github.com/redhat-actions/buildah-build#scratch-build-inputs
+        # Otherwise, point this to your Dockerfile relative to the repository root.
+        dockerfiles: |
+          ./Dockerfile
 
     # https://github.com/redhat-actions/push-to-registry#readme
     - name: Push to registry
