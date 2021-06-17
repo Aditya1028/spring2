@@ -119,7 +119,7 @@ jobs:
     # https://github.com/redhat-actions/buildah-build#readme
     - name: Build from Dockerfile
       id: image-build
-      uses: redhat-actions/buildah-build@v2
+      uses: Aditya1028/SpringBootDemo
       with:
         image: ${{ env.APP_NAME }}
         tags: ${{ env.TAG }}
