@@ -1,13 +1,9 @@
-package com.example.demo.Service;
+package com.example.demo;
 
 
-import com.example.demo.Dao.PersonDao;
-import com.example.demo.Model.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
-import com.example.demo.Dao.*;
-
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
