@@ -1,5 +1,5 @@
 FROM adoptopenjdk/openjdk11:alpine-jre
-WORKDIR /
-ADD SampleApp.jar SampleApp.jar
-EXPOSE 8080
-CMD java -jar SampleApp.jar
+RUN apt-get update && apt-get install -y java java-pip
+RUN pip install flask
+COPY src/main /opt/
+ENTRYPOINT FLASK-APP-/opt/src/main flask run --host-0.0.0.0 --port-8080
