@@ -22,9 +22,18 @@ public class PersonController {
     public void  addPerson(@RequestBody Person person){
         personService.addPerson(person);
     }
+   // @GetMapping
+    //public List<Person> getAllPeople(){
+    //    return personService.getAllAPeople();
+    //}
+    
     @GetMapping
-    public List<Person> getAllPeople(){
-        return personService.getAllAPeople();
+	 public List<String> getAllPeople(){ 
+    	
+    	List<String> a= new ArrayList<>();
+    	a.add("Aditya");
+    	a.add("Deepali");    	
+    	return a;
     }
 
     @GetMapping(path = "{id}")
