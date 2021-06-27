@@ -45,21 +45,15 @@
 			<groupId>xml-apis</groupId>
 			<artifactId>xml-apis</artifactId>
 			<version>1.3.04</version>
-		</dependency>		     
-         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-undertow</artifactId>
-        </dependency>
+		</dependency>   
+       
         
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
             <scope>provided</scope>
-        </dependency>
-        
-         <dependency> <groupId>org.wildfly.plugins</groupId> 
-        <artifactId>wildfly-maven-plugin</artifactId> <version>2.1.0.Beta1</version>
-         <type>maven-plugin</type> </dependency>         
+        </dependency>    
+            
                 
 	</dependencies>
 
