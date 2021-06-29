@@ -57,14 +57,6 @@
             <scope>provided</scope>
         </dependency>  
 	</dependencies>
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-		</plugins>
-	</build>
 	<profiles>
     <profile>
      <!-- When built in OpenShift the 'openshift' profile will be used when invoking mvn. -->
@@ -75,6 +67,10 @@
      <build>
         <finalName>springBootWildFly</finalName>
         <plugins> 
+        <plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
         <plugin>       
                 <groupId>org.wildfly.plugins</groupId>
                 <artifactId>wildfly-maven-plugin</artifactId>
